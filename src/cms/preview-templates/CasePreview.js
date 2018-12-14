@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { CaseTemplate } from '../../templates/case'
+import { CaseTemplate } from '../../templates/case.js'
 
 const CasePreview = ({ entry, widgetFor }) => (
   <CaseTemplate
