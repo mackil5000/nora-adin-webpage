@@ -1,6 +1,6 @@
-backend:
-  name: git-gateway
-  branch: master
+backend: 
+ name: git-gateway
+ branch: master
 
 media_folder: static/img
 public_folder: /img
@@ -26,13 +26,27 @@ collections:
     slug: "{{title}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "case"}
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Bild för sociala medier", name: "image", widget: "image"}
-      - {label: "Beskrivning", name: heading, widget: string}
+      - {label: "Beskrivning", name: description, widget: string}
       - {label: "Rubrik", name: heading, widget: string}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Högerspalt", name: "object", widget: "list", fields: [{label: "Body", name: "body", widget: "markdown"}, {label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}
+      - {label: "Sammanfattning", name: "intro", widget: "object", fields: [
+{label: Image, name: image, widget: image},
+{label: Alt, name: alt, widget: string},
+{label: "Rubrik", name: heading, widget: string},
+{label: "Description", name: "description", widget: "text"},
+{label: "Beskrivning", name: intro, widget: string},
+{label: Sammanfattning, name: plans, widget: list, required: false, fields: [
+  {label: Image, name: image, widget: image},
+{label: "Rubrik", name: heading, widget: string},
+{label: Textruta, name: plan, widget: string},
+]}
+]}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+
+
   - name: "pages"
     label: "Pages"
     files:
@@ -56,4 +70,3 @@ collections:
           - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
