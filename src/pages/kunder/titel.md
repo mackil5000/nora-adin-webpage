@@ -1,23 +1,21 @@
 ---
 templateKey: case
-title: Jannes betongborrning
-image1: 
-  image: /img/og-image.jpg
-  alt: yalla
-description: Kort beskrivning
-heading: Företagsnamnet
-date: 2018-12-15T00:20:53.376Z
+title: Titel
+image: /img/apple-touch-icon.png
+description: maggan
+heading: maggan
+date: 2018-12-15T02:19:52.373Z
 intro:
-  alt: Alt-text
-  image: /img/meeting-space.png
-  description: Beskrivande text om företaget
-  heading: 'Om {företagsnamn}'
-  intro: Resultat
+  alt: maggan
+  image: /img/coffee-gear.png
+  description: maggan
+  heading: maggan
+  intro: maggan
   plans:
-    - image: /img/favicon-32x32.png
-      description: Företaget fick en extremt effektiv vardag med ett CRM
-      heading: Effektivare vardag
+    - image: /img/coffee.png
+      description: maggan
+      heading: maggan
 tags:
-  - yolo
+  - maggan
 ---
-Brötexten
+maggan
