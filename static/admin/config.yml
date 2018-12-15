@@ -32,13 +32,12 @@ collections:
       - {label: "Rubrik", name: heading, widget: string}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Sammanfattning", name: "intro", widget: "object", fields: [
-{label: Image, name: image, widget: image},
-{label: Alt, name: alt, widget: string},
+  {label: "Företagsbild", name: "image2", widget: "object", fields: [{label: Företagsbild, name: image, widget: image}, {label: Alt, name: alt, widget: string}]},
 {label: "Rubrik", name: heading, widget: string},
 {label: "Description", name: "description", widget: "text"},
 {label: "Beskrivning", name: intro, widget: string},
 {label: Sammanfattning, name: plans, widget: list, required: false, fields: [
-  {label: Image, name: image, widget: image},
+  {label: "SVG", name: "image3", widget: "object", fields: [{label: SVG, name: image, widget: image}, {label: Alt, name: alt, widget: string}]},
 {label: "Rubrik", name: heading, widget: string},
 {label: Textruta, name: description, widget: text},
 ]}

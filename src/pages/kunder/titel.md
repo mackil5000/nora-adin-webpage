@@ -8,15 +8,18 @@ description: maggan
 heading: maggan
 date: 2018-12-15T02:19:52.373Z
 intro:
-  alt: maggan
-  image: /img/coffee-gear.png
+  image2:
+    image: /img/coffee-gear.png
+    alt: yolo
   description: maggan
   heading: maggan
   intro: maggan
   plans:
-    - image: /img/coffee.png
-      description: maggan
-      heading: maggan
+    image3:
+      image: /img/coffee.png
+      alt: yoloalt
+    description: maggan
+    heading: maggan
 tags:
   - maggan
 ---

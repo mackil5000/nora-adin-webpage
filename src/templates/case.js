@@ -18,6 +18,7 @@ export const CaseTemplate = ({
   helmet,
   introDescription,
   introHeading,
+  introImage,
   cardImage,
 }) => {
   const PostContent = contentComponent || Content
@@ -36,6 +37,7 @@ export const CaseTemplate = ({
             <p>{introDescription}</p>
             <p>{introHeading}</p>
             <PreviewCompatibleImage imageInfo={cardImage} />
+            <PreviewCompatibleImage imageInfo={introImage} />
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -57,7 +59,15 @@ export const CaseTemplate = ({
 }
 
 CaseTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  // image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image1: PropTypes.shape({
+    image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  }),
+  intro: PropTypes.shape({
+    image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  }),
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -77,6 +87,7 @@ const Case = ({ data }) => {
         heading={post.frontmatter.heading}
         introDescription={post.frontmatter.intro.description}
         introHeading={post.frontmatter.intro.heading}
+        introImage={post.frontmatter.intro.image}
         cardImage={post.frontmatter.image1}
         helmet={
           <Helmet
@@ -107,8 +118,8 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        templateKey
           title
-          templateKey
           image1{
             image
             alt
@@ -117,14 +128,20 @@ export const pageQuery = graphql`
           heading
           date(formatString: "MMMM DD, YYYY")
           intro {
-            image
-            alt
-            heading
+            image2{
+              image
+              alt
+            }
             description
+            heading
             intro
             plans {
-              heading
+              image3{
+                image
+                alt
+              }
               description
+              heading
             }
           }
           tags
