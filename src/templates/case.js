@@ -121,7 +121,9 @@ export const pageQuery = graphql`
         templateKey
           title
           image1{
-            image
+            image{
+              id
+            }
             alt
           }
           description
@@ -129,7 +131,9 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           intro {
             image2{
-              image
+              image{
+                id
+              }
               alt
             }
             description
@@ -137,7 +141,9 @@ export const pageQuery = graphql`
             intro
             plans {
               image3{
-                image
+                image{
+                  id
+                }
                 alt
               }
               description
