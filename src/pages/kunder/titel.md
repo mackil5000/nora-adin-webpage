@@ -1,6 +1,6 @@
 ---
 templateKey: case
-title: Titel
+title: Jannes betongborrning
 image: /img/og-image.jpg
 description: Kort beskrivning
 heading: Företagsnamnet
