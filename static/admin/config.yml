@@ -40,10 +40,10 @@ collections:
 {label: Sammanfattning, name: plans, widget: list, required: false, fields: [
   {label: Image, name: image, widget: image},
 {label: "Rubrik", name: heading, widget: string},
-{label: Textruta, name: plan, widget: string},
+{label: Textruta, name: description, widget: text},
 ]}
 ]}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Brödtext", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 
 
