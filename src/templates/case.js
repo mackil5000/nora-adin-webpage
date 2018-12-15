@@ -21,6 +21,7 @@ export const CaseTemplate = ({
   introImage,
   cardImage,
   svgImage,
+  intro,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -37,9 +38,9 @@ export const CaseTemplate = ({
             <p>{description}</p>
             <p>{introDescription}</p>
             <p>{introHeading}</p>
-            <PreviewCompatibleImage imageInfo={cardImage} />
-            <PreviewCompatibleImage imageInfo={introImage} />
-            <PreviewCompatibleImage imageInfo={svgImage} /> 
+            <PreviewCompatibleImage imageInfo={intro.image2} />
+            {/* <PreviewCompatibleImage imageInfo={introImage} />
+            <PreviewCompatibleImage imageInfo={svgImage} />  */}
 
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -89,6 +90,7 @@ const Case = ({ data }) => {
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         heading={post.frontmatter.heading}
+        intro={post.frontmatter.intro}
         introDescription={post.frontmatter.intro.description}
         introHeading={post.frontmatter.intro.heading}
         cardImage={post.frontmatter.image1}
@@ -111,7 +113,9 @@ const Case = ({ data }) => {
 
 Case.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
   }),
 }
 
