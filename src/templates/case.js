@@ -123,27 +123,33 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        templateKey
+          templateKey
           title
-          image1{
+          image1 {
             alt
-            image
+            image {
+              id
+            }
           }
           description
           heading
           date(formatString: "MMMM DD, YYYY")
           intro {
-            image2{
+            image2 {
               alt
-              image
+              image {
+                id
+              }
             }
             description
             heading
             intro
             plans {
-              image3{
+              image3 {
                 alt
-                image
+                image {
+                  id
+                }
               }
               description
               heading
