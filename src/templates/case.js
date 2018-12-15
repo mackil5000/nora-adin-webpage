@@ -5,14 +5,20 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+
 
 export const CaseTemplate = ({
   content,
   contentComponent,
   description,
+  heading,
   tags,
   title,
   helmet,
+  introDescription,
+  introHeading,
+  cardImage,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -22,10 +28,14 @@ export const CaseTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
+         <h2>{heading}</h2>
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
             <p>{description}</p>
+            <p>{introDescription}</p>
+            <p>{introHeading}</p>
+            <PreviewCompatibleImage imageInfo={cardImage} />
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -63,6 +73,10 @@ const Case = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        heading={post.frontmatter.heading}
+        introDescription={post.frontmatter.intro.description}
+        introHeading={post.frontmatter.intro.heading}
+        cardImage={post.frontmatter.image}
         helmet={
           <Helmet
             titleTemplate="%s | Blog"
@@ -92,11 +106,27 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        description
-        tags
-      }
+          image {
+            id
+          }
+          title
+          templateKey
+          description
+          heading
+          date(formatString: "MMMM DD, YYYY")
+          intro {
+            image
+            alt
+            heading
+            description
+            intro
+            plans {
+              heading
+              description
+            }
+          }
+          tags
+        }
     }
   }
 `

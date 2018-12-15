@@ -27,7 +27,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "case"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Bild för sociala medier", name: "image", widget: "image"}
+      - {label: "Bild för sociala medier", name: "image", widget: "object", fields: [{label: Företagsbild, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}
       - {label: "Beskrivning", name: description, widget: string}
       - {label: "Rubrik", name: heading, widget: string}
       - {label: "Publish Date", name: "date", widget: "datetime"}
