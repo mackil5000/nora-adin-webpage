@@ -1,7 +1,9 @@
 ---
 templateKey: case
 title: Titel
-image: /img/apple-touch-icon.png
+image1:
+  image: /img/apple-touch-icon.png
+  alt: maggans alt
 description: maggan
 heading: maggan
 date: 2018-12-15T02:19:52.373Z
