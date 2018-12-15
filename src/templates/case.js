@@ -127,7 +127,9 @@ export const pageQuery = graphql`
           title
           image1 {
             alt
-            image
+            image{
+              id
+            }
           }
           description
           heading
@@ -135,7 +137,9 @@ export const pageQuery = graphql`
           intro {
             image2 {
               alt
-              image 
+              image{
+                id
+              }
             }
             description
             heading
@@ -145,10 +149,10 @@ export const pageQuery = graphql`
               heading
               image3 {
                 alt
-                image 
+                image{
+                  id
+                }
               }
-              
-              
             }
           }
           tags
