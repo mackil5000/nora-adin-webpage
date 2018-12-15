@@ -27,94 +27,23 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "case"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Bild för sociala medier", name: "image1", widget: "object", fields: [
-          {label: Företagsbild, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}
+      - {label: "Bild för sociala medier", name: "image1", widget: "object", fields: [{label: Företagsbild, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}
       - {label: "Beskrivning", name: description, widget: string}
       - {label: "Rubrik", name: heading, widget: string}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {
-        label: "Sammanfattning", 
-          name: "intro", 
-          widget: "object", 
-          fields: [
-              {
-                label: "Företagsbild", 
-                  name: "image2", 
-                  widget: "object", 
-                  fields: [
-                {
-                  label: Företagsbild, 
-                    name: image, 
-                    widget: image}, 
-                {
-                  label: Alt, 
-                    name: alt, 
-                    widget: string
-                 }
-                 ]
-              },
-            {
-              label: "Rubrik", 
-              name: heading, 
-              widget: string
-              },
-            {
-              label: "Description", 
-              name: "description", 
-              widget: "text"
-              },
-            {
-              label: "Beskrivning", 
-              name: intro, 
-              widget: string
-              },
-            {
-              label: Sammanfattning, 
-              name: plans, 
-              widget: list, 
-              required: false, 
-              fields: [
-              {
-                label: "SVG", 
-                name: "image3", 
-                widget: "object", 
-                fields: [
-                  {
-                    label: SVG, 
-                    name: image, 
-                    widget: image
-                    }, 
-                    {
-                      label: Alt, 
-                      name: alt, 
-                      widget: string
-                      }
-                  ]
-                },
-            {
-              label: "Rubrik", 
-              name: heading, 
-              widget: string
-              },
-            {
-              label: Textruta, 
-              name: description, 
-              widget: text
-              },
-            ]
-            }
-            ]
-            }
-          - {
-            label: "Brödtext", 
-            name: "body", 
-            widget: "markdown"
-            }
-          - {
-            label: "Tags", 
-            name: "tags", 
-            widget: "list"
-            }
+      - {label: "Sammanfattning", name: "intro", widget: "object", fields: [
+  {label: "Företagsbild", name: "image2", widget: "object", fields: [{label: Företagsbild, name: image, widget: image}, {label: Alt, name: alt, widget: string}]},
+{label: "Rubrik", name: heading, widget: string},
+{label: "Description", name: "description", widget: "text"},
+{label: "Beskrivning", name: intro, widget: string},
+{label: Sammanfattning, name: plans, widget: list, required: false, fields: [
+  {label: "SVG", name: "image3", widget: "object", fields: [{label: SVG, name: image, widget: image}, {label: Alt, name: alt, widget: string}]},
+{label: "Rubrik", name: heading, widget: string},
+{label: Textruta, name: description, widget: text},
+]}
+]}
+      - {label: "Brödtext", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
 
 
   - name: "pages"
