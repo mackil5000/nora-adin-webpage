@@ -128,6 +128,11 @@ export const pageQuery = graphql`
           image1 {
             alt
             image{
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
               id
             }
           }
@@ -138,6 +143,11 @@ export const pageQuery = graphql`
             image2 {
               alt
               image{
+                childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
                 id
               }
             }
@@ -148,8 +158,14 @@ export const pageQuery = graphql`
               description
               heading
               image3 {
+                
                 alt
                 image{
+                  childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
                   id
                 }
               }
