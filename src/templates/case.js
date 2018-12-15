@@ -122,7 +122,11 @@ export const pageQuery = graphql`
           title
           image1{
             image{
-              id
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
             alt
           }
@@ -132,8 +136,12 @@ export const pageQuery = graphql`
           intro {
             image2{
               image{
-                id
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
               }
+            }
               alt
             }
             description
@@ -142,8 +150,12 @@ export const pageQuery = graphql`
             plans {
               image3{
                 image{
-                  id
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
                 }
+              }
+            }
                 alt
               }
               description
