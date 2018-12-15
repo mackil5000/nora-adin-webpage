@@ -1,7 +1,9 @@
 ---
 templateKey: case
 title: Jannes betongborrning
-image: /img/og-image.jpg
+image1: 
+  image: /img/og-image.jpg
+  alt: yalla
 description: Kort beskrivning
 heading: Företagsnamnet
 date: 2018-12-15T00:20:53.376Z

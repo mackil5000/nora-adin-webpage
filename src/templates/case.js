@@ -57,6 +57,7 @@ export const CaseTemplate = ({
 }
 
 CaseTemplate.propTypes = {
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -76,7 +77,7 @@ const Case = ({ data }) => {
         heading={post.frontmatter.heading}
         introDescription={post.frontmatter.intro.description}
         introHeading={post.frontmatter.intro.heading}
-        cardImage={post.frontmatter.image}
+        cardImage={post.frontmatter.image1}
         helmet={
           <Helmet
             titleTemplate="%s | Blog"
@@ -106,8 +107,9 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-          image {
-            id
+          image1{
+            image
+            alt
           }
           title
           templateKey
