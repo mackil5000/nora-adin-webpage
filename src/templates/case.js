@@ -20,6 +20,7 @@ export const CaseTemplate = ({
   introHeading,
   introImage,
   cardImage,
+  svgImage,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -38,6 +39,8 @@ export const CaseTemplate = ({
             <p>{introHeading}</p>
             <PreviewCompatibleImage imageInfo={cardImage} />
             <PreviewCompatibleImage imageInfo={introImage} />
+            <PreviewCompatibleImage imageInfo={svgImage} /> 
+
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -62,11 +65,12 @@ CaseTemplate.propTypes = {
   // image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   image1: PropTypes.shape({
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
   intro: PropTypes.shape({
     image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  }),
+  plans: PropTypes.shape({
+    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
@@ -87,8 +91,9 @@ const Case = ({ data }) => {
         heading={post.frontmatter.heading}
         introDescription={post.frontmatter.intro.description}
         introHeading={post.frontmatter.intro.heading}
-        introImage={post.frontmatter.intro.image}
         cardImage={post.frontmatter.image1}
+        introImage={post.frontmatter.intro.image2}
+        svgImage={post.frontmatter.intro.plans.image3}
         helmet={
           <Helmet
             titleTemplate="%s | Blog"
@@ -121,42 +126,24 @@ export const pageQuery = graphql`
         templateKey
           title
           image1{
-            image{
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
             alt
+            image
           }
           description
           heading
           date(formatString: "MMMM DD, YYYY")
           intro {
             image2{
-              image{
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
               alt
+              image
             }
             description
             heading
             intro
             plans {
               image3{
-                image{
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
                 alt
+                image
               }
               description
               heading
