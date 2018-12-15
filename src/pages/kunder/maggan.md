@@ -15,11 +15,11 @@ intro:
     image: /img/coffee-gear.png
   intro: Maggans
   plans:
-      description: MagganMagganMagganMaggan
-      heading: Maggansfhsdhfd
-      image3:
-        alt: Magganhdsfhd
-        image: /img/favicon-32x32.png
+    description: MagganMagganMagganMaggan
+    heading: Maggansfhsdhfd
+    image3:
+      alt: Magganhdsfhd
+      image: /img/og-image.jpg
 tags:
   - Maggansdfhdsf
 ---
