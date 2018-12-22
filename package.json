@@ -3,6 +3,7 @@
   "description": "Example Gatsby, and Netlify CMS project",
   "version": "1.1.3",
   "author": "Austin Green",
+  "repository": "https://github.com/mackil5000/nora-adin-webpage",
   "dependencies": {
     "bulma": "^0.7.0",
     "gatsby": "^2.0.66",
