@@ -130,6 +130,7 @@ export const pageQuery = graphql`
                     ...GatsbyImageSharpFluid
                   }
                 }
+                id
               }
             }
             templateKey
