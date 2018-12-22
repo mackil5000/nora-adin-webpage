@@ -34,7 +34,7 @@ collections:
 
       - file: "src/pages/kontakt/index.js"
         label: "Om mig"
-        name: "about"
+        name: "contact"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact"}
           - {label: "Title", name: "title", widget: "string"}
