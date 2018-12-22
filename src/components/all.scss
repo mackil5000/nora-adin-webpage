@@ -1,29 +1,23 @@
 @import "~bootstrap/scss/bootstrap.scss";
-
 @import "./scss/contactPage.scss";
+@import url('https://fonts.googleapis.com/css?family=Assistant|Cambo|La+Belle+Aurore');
 
-$main-font: Raleway,
-"sans-serif";
-$blog-font: Old Standard TT,
-"sans-serif";
-$heading: Raleway,
-"sans-serif";
+$main-font: Assistant, "serif";
+$heading: La Belle Aurore, "cursive";
+
 $main-color: #3b3b3b;
-
-
-
-
 
 body {
     font-family: $main-font;
     color: $main-color;
 }
 
-nav{
+nav {
     background: #fafafa;
 }
-.navbar-nav{
-    text-align:center;
+
+.navbar-nav {
+    text-align: center;
 }
 
 h1,
@@ -36,7 +30,7 @@ h6 {
 }
 
 h1 {
-    font-size: 52px;
+    font-size: 56px;
     margin-bottom: 20px;
 }
 
@@ -71,57 +65,17 @@ li {
     font-size: 16px;
 }
 
-.card {
-    border: none;
+// blog-post
+
+.blog-heading{
+    margin-top: 56px;
+    margin-bottom: 32px;
 }
 
-.card-heading {
-    font-weight: 600;
-    margin-top: 8px;
+.intro-text{
+    font-size: 23px;
 }
 
-.blog-text {
-    font-family: $blog-font;
-    font-size: 22px;
-    max-width: 700px;
-    line-height: 42px;
-}
-
-.hero-image {
-    height: 20vh;
-}
-
-.bp-title {
-    padding-top: 20%;
-    padding-bottom: 20%;
-}
-
-.post-list {
-    font-size: 12px;
-    list-style-type: none;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.highway {
-    max-width: 800px;
-    display: block;
-    margin: auto;
-    font-size: 22px;
-    font-family: $blog-font;
-}
-
-.highway p {
-    font-family: $blog-font;
-    font-size: 22px;
-}
-
-.navbar {
-    position: relative;
- 
-}
 
 
 @media (min-width: 576px) {

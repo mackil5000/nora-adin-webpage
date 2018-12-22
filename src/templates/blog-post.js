@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from "react";
+import PropTypes from "prop-types";
+import { kebabCase } from "lodash";
+import Helmet from "react-helmet";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+
 
 export const BlogPostTemplate = ({
   content,
@@ -13,19 +15,22 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
+  image
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+    <div className="container">
+      {helmet || ""}
+      <div className="row">
+        <div className="col-md-10 col-lg-8 col-xl-6 mx-auto">
+         <PreviewCompatibleImage
+                        imageInfo={image}
+                      />
+            <h1 className="blog-heading">
               {title}
             </h1>
-            <p>{description}</p>
+            <p className="intro-text">{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -39,23 +44,22 @@ export const BlogPostTemplate = ({
                 </ul>
               </div>
             ) : null}
-          </div>
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  );
+};
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object,
-}
+  helmet: PropTypes.object
+};
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -63,28 +67,30 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        image={post.frontmatter.image1}
         helmet={
-          <Helmet
-            titleTemplate="%s | Blog"
-          >
+          <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
-            <meta name="description" content={`${post.frontmatter.description}`} />
+            <meta
+              name="description"
+              content={`${post.frontmatter.description}`}
+            />
           </Helmet>
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
     </Layout>
-  )
-}
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
+    markdownRemark: PropTypes.object
+  })
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -95,8 +101,19 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        image1 {
+              alt
+               image {
+                 childImageSharp {
+                   fluid(maxWidth: 800, quality:64) {
+                     ...GatsbyImageSharpFluid
+                   }
+                 }
+                 id
+               }
+            }
         tags
       }
     }
   }
-`
+`;
