@@ -1,6 +1,6 @@
 ---
 templateKey: 'about-page'
-path: /about
+path: /om-mig
 title: About our values
 ---
 ### Shade-grown coffee
