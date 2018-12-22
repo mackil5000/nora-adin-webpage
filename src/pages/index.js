@@ -104,7 +104,8 @@ IndexPage.propTypes = {
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array
     })
-  })
+  }),
+  image1: PropTypes.object
 };
 
 export const pageQuery = graphql`
@@ -124,15 +125,15 @@ export const pageQuery = graphql`
             title
             image1 {
               alt
-               image {
-                 childImageSharp {
-                   fluid(maxWidth: 240, quality:64) {
-                     ...GatsbyImageSharpFluid
-                   }
-                 }
-                 id
-               }
-            }
+                # image {
+                #   childImageSharp {
+                #     fluid(maxWidth: 240, quality:64) {
+                #       ...GatsbyImageSharpFluid
+                #     }
+                #   }
+                #   id
+                # }
+             }
             templateKey
             date(formatString: "MMMM DD, YYYY")
           }

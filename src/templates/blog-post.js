@@ -15,7 +15,7 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-  image
+  image1
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -25,7 +25,7 @@ export const BlogPostTemplate = ({
       <div className="row">
         <div className="col-md-10 col-lg-8 col-xl-6 mx-auto">
          <PreviewCompatibleImage
-                        imageInfo={image}
+                        imageInfo={image1}
                       />
             <h1 className="blog-heading">
               {title}
@@ -55,6 +55,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
+  image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   helmet: PropTypes.object
 };
 
@@ -67,7 +68,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        image={post.frontmatter.image1}
+        image1={post.frontmatter.image1}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
