@@ -66,7 +66,11 @@ export default class IndexPage extends React.Component {
                     key={post.id}
                   >
                     <Link to={post.fields.slug}>
-                   
+                      {/* <img
+                        className="img-fluid"
+                        style={{ borderRadius: '5px' }}
+                        src={post.frontmatter.image}
+                      /> */}
                       <PreviewCompatibleImage
                         imageInfo={post.frontmatter.image1}
                       />
@@ -120,7 +124,14 @@ export const pageQuery = graphql`
             title
             image1 {
               alt
-              image
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 240, quality:64) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+                id
+              }
             }
             templateKey
             date(formatString: "MMMM DD, YYYY")
