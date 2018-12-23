@@ -54,7 +54,7 @@ const Navbar = class extends React.Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link className="nav-item nav-link" to="/about">
+              <Link className="nav-item nav-link" to="/om-mig">
                 Om mig
               </Link>
               <Link className="nav-item nav-link" to="/kontakt">
