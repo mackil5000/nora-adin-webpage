@@ -5,7 +5,6 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 export const BlogPostTemplate = ({
   content,
@@ -14,7 +13,6 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-  image1,
   image
 }) => {
   const PostContent = contentComponent || Content;
@@ -24,17 +22,27 @@ export const BlogPostTemplate = ({
       {helmet || ""}
       <div className="row">
         <div className="col-xl-6">
-          <div style={{ marginLeft: "auto", width: "500px" }}>
-            {" "}
+          <div
+            className="heading-wrapper"
+            style={{ marginLeft: "auto", width: "500px" }}
+          >
             <h1 className="blog-heading">{title}</h1>
             <p className="intro-text">{description}</p>
           </div>
         </div>
-        <div className="col-xl-6">
-          <PreviewCompatibleImage imageInfo={image1} />
-        </div>
-        <div className="col-md-9 col-lg-8 col-xl-5 mx-auto">
-          <p className="intro-text">{description}</p>
+        <div
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain"
+          }}
+          className="col-xl-6"
+        />
+        <div
+          style={{ marginTop: "100px" }}
+          className="col-md-9 col-lg-8 col-xl-5 mx-auto"
+        >
           <PostContent content={content} />
           {tags && tags.length ? (
             <div style={{ marginTop: `4rem` }}>
@@ -59,7 +67,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image: PropTypes.string,
   helmet: PropTypes.object
 };
 
@@ -72,8 +80,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        image1={post.frontmatter.image1}
-        image={post.frontmatter.image1.image}
+        image={post.frontmatter.image}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -107,9 +114,12 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        image1 {
-          alt
-          image
+        image {
+          childImageSharp {
+            fluid(maxWidth: 730, quality: 64) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
         tags
       }

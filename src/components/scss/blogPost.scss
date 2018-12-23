@@ -1,6 +1,4 @@
-.gatsby-image-wrapper{
-    height: 40vh;
-}
+
 
 .blog-heading{
     margin-top: 56px;
@@ -10,4 +8,25 @@
 .intro-text{
     font-size: 23px;
     margin-bottom: 50px;
+}
+
+
+
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    .heading-wrapper{
+        padding-right: 80px;
+    }
+}
+
+@media (min-width: 1200px) {
+
 }
