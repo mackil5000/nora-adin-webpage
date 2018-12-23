@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 export default class IndexPage extends React.Component {
   render() {
@@ -65,11 +66,13 @@ export default class IndexPage extends React.Component {
                     key={post.id}
                   >
                     <Link to={post.fields.slug}>
-                      <img
+                      {/* <img
                         className="img-fluid"
                         style={{ borderRadius: "5px" }}
                         src={post.frontmatter.image}
-                      />
+                      /> */}
+<PreviewCompatibleImage imageInfo={post.frontmatter.image} />
+
                     </Link>
                     <h4 className="card-heading">
                       <Link className="" to={post.fields.slug}>

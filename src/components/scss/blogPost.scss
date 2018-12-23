@@ -1,32 +1,42 @@
-
-
-.blog-heading{
+.blog-heading {
     margin-top: 56px;
     margin-bottom: 32px;
 }
 
 .intro-text{
     font-size: 23px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 
 
-
-@media (min-width: 576px) {
-
+@media (max-width: 575px) {
+    .header-image{
+        width: 100vw;
+        height: 31vh;
+    }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {}
 
-}
+@media (min-width: 768px) {}
 
 @media (min-width: 992px) {
-    .heading-wrapper{
+    .heading-wrapper {
+        width: 500px;
         padding-right: 80px;
+    }
+
+    .intro-text {
+        font-size: 23px;
+        margin-bottom: 50px;
     }
 }
 
 @media (min-width: 1200px) {
-
+    div.blog-body p {
+        margin-bottom: 28px;
+        margin-top: 100px;
+        line-height: 1.8em;
+    }
 }

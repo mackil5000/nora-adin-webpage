@@ -21,10 +21,10 @@ export const BlogPostTemplate = ({
     <div className="container-fluid">
       {helmet || ""}
       <div className="row">
-        <div className="col-xl-6">
+        <div className="col-xl-6 order-md-1">
           <div
             className="heading-wrapper"
-            style={{ marginLeft: "auto", width: "500px" }}
+            style={{ marginLeft: "auto", }}
           >
             <h1 className="blog-heading">{title}</h1>
             <p className="intro-text">{description}</p>
@@ -38,13 +38,11 @@ export const BlogPostTemplate = ({
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain"
           }}
-          className="col-xl-6"
+          className="col-xl-6 header-image order-first order-md-2"
         /> 
         
      
-        <div
-          style={{ marginTop: "100px" }}
-          className="col-md-9 col-lg-8 col-xl-5 mx-auto"
+        <div className="col-md-9 col-lg-8 col-xl-5 order-3 blog-body mx-auto"
         >
           <PostContent content={content} />
           {tags && tags.length ? (
