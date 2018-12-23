@@ -127,14 +127,7 @@ export const pageQuery = graphql`
             title
             image1 {
               alt
-                #  image {
-                #    childImageSharp {
-                #      fluid(maxWidth: 240, quality:64) {
-                #        ...GatsbyImageSharpFluid
-                #      }
-                #    }
-                #    id
-                #  }
+                 image 
              }
             templateKey
             date(formatString: "MMMM DD, YYYY")
