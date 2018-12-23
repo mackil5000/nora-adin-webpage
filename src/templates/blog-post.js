@@ -24,10 +24,14 @@ export const BlogPostTemplate = ({
       {helmet || ""}
       <div className="row">
         <div className="col-md-10 col-lg-8 col-xl-6 mx-auto">
-         <PreviewCompatibleImage
-                        imageInfo={image1}
-                      />
-            <h1 className="blog-heading">
+        
+            <h1 style={{
+                  backgroundImage: `url(${
+                    !!image1.childImageSharp
+                      ? image1.childImageSharp.fluid.src
+                      : image1
+                  })`,
+                }} className="blog-heading">
               {title}
             </h1>
             <p className="intro-text">{description}</p>
