@@ -41,15 +41,7 @@ export const BlogPostTemplate = ({
           className="col-xl-6"
         /> 
         
-        {/* <div
-        style={{
-          backgroundImage: `url(${image})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain"
-        }}
-        className="col-xl-6"
-      /> */}
+     
         <div
           style={{ marginTop: "100px" }}
           className="col-md-9 col-lg-8 col-xl-5 mx-auto"
@@ -78,7 +70,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   helmet: PropTypes.object
 };
 
