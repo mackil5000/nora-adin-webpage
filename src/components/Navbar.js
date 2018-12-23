@@ -42,7 +42,7 @@ const Navbar = class extends React.Component {
             </figure>
           </Link>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler navbar-hamburger"
             type="button"
             data-toggle="collapse"
             data-target="#navbarNavAltMarkup"
@@ -50,7 +50,7 @@ const Navbar = class extends React.Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon navbar-hamburger" />
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">

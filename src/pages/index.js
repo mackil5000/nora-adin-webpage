@@ -4,7 +4,17 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
-const $magganLinks = document.querySelectorAll(`${post.frontmatter.id}`);
+
+
+
+export default class IndexPage extends React.Component {
+
+
+
+  render() {
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
+    const $magganLinks = document.querySelectorAll(`${post.frontmatter.id}`);
 // Check if there are any navbar burgers
 if ($magganLinks.length > 0) {
   // Add a click event on each of them
@@ -19,15 +29,6 @@ if ($magganLinks.length > 0) {
     });
   });
 }
-
-
-export default class IndexPage extends React.Component {
-
-
-
-  render() {
-    const { data } = this.props;
-    const { edges: posts } = data.allMarkdownRemark;
     return (
       <Layout>
         <div
