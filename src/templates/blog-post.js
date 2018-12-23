@@ -23,7 +23,7 @@ export const BlogPostTemplate = ({
     <div className="container">
       {helmet || ""}
       <div className="row">
-        <div className="col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div className="col-md-9 col-lg-8 col-xl-8 mx-auto">
         
             <h1 style={{
                   backgroundImage: `url(${
