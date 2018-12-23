@@ -25,14 +25,10 @@ export const BlogPostTemplate = ({
       {helmet || ""}
       <div className="row">
         <div className="col-md-9 col-lg-8 col-xl-8 mx-auto">
-        
-            <h1 style={{
-                  backgroundImage: `url(${post.frontmatter.image1.image})`,
-                }} className="blog-heading">
+        <PreviewCompatibleImage imageInfo={image1} />
+            <h1 className="blog-heading">
               {title}
             </h1>
-<PreviewCompatibleImage imageInfo={image} />
-
             <p className="intro-text">{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
