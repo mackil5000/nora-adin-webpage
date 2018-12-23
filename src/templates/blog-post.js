@@ -7,7 +7,6 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
-
 export const BlogPostTemplate = ({
   content,
   contentComponent,
@@ -21,28 +20,34 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       {helmet || ""}
       <div className="row">
-        <div className="col-md-9 col-lg-8 col-xl-8 mx-auto">
-        <PreviewCompatibleImage imageInfo={image1} />
-            <h1 className="blog-heading">
-              {title}
-            </h1>
+        <div className="col-xl-6">
+          <div style={{ marginLeft: "auto", width: "500px" }}>
+            {" "}
+            <h1 className="blog-heading">{title}</h1>
             <p className="intro-text">{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+          </div>
+        </div>
+        <div className="col-xl-6">
+          <PreviewCompatibleImage imageInfo={image1} />
+        </div>
+        <div className="col-md-9 col-lg-8 col-xl-5 mx-auto">
+          <p className="intro-text">{description}</p>
+          <PostContent content={content} />
+          {tags && tags.length ? (
+            <div style={{ marginTop: `4rem` }}>
+              <h4>Tags</h4>
+              <ul className="taglist">
+                {tags.map(tag => (
+                  <li key={tag + `tag`}>
+                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
@@ -62,7 +67,7 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout> 
+    <Layout>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -103,17 +108,9 @@ export const pageQuery = graphql`
         title
         description
         image1 {
-              alt
-               image {
-                 childImageSharp {
-                   fluid(maxWidth: 800, quality:64) {
-                     ...GatsbyImageSharpFluid
-                   }
-                   
-                 }
-                 id
-               }
-            }
+          alt
+          image
+        }
         tags
       }
     }

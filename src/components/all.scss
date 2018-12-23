@@ -1,10 +1,20 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "./scss/contactPage.scss";
 @import "./scss/blogPost.scss";
-@import url('https://fonts.googleapis.com/css?family=Assistant|Cambo|La+Belle+Aurore');
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Noto+Serif+SC|Oswald|Staatliches');
 
-$main-font: Assistant, "serif";
+
+
+
+// font-family: 'Staatliches', cursive;
+// font-family: 'Oswald', sans-serif;
+// font-family: 'Major Mono Display', monospace;
+// font-family: 'Noto Serif SC', serif;
+
+$main-font: 'Noto Serif SC', "serif";
 $heading: La Belle Aurore, "cursive";
+$heading1: Oswald, "sans-serif";
+
 
 $main-color: #3b3b3b;
 
@@ -27,7 +37,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $heading;
+    font-family: $heading1;
 }
 
 h1 {
@@ -66,16 +76,9 @@ li {
     font-size: 16px;
 }
 
-// blog-post
 
-.blog-heading{
-    margin-top: 56px;
-    margin-bottom: 32px;
-}
 
-.intro-text{
-    font-size: 23px;
-}
+
 
 
 
