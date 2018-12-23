@@ -31,6 +31,8 @@ export const BlogPostTemplate = ({
                 }} className="blog-heading">
               {title}
             </h1>
+<PreviewCompatibleImage imageInfo={image} />
+
             <p className="intro-text">{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
