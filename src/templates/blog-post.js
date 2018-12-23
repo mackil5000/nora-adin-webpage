@@ -114,8 +114,8 @@ export const pageQuery = graphql`
               ) {
                 src
                 srcSet
+                sizes
               }
-              sizes
             }
             id
           }
