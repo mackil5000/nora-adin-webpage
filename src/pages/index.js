@@ -63,7 +63,7 @@ export default class IndexPage extends React.Component {
                       />
                     </Link>
                     <p className="card-heading">
-                      <Link className="" to={post.fields.slug}>
+                      <Link style={{ fontSize: '16px'}} className="" to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
                     </p>
@@ -90,7 +90,7 @@ IndexPage.propTypes = {
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: ASC, fields: [frontmatter___date] }
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
     ) {
       edges {
