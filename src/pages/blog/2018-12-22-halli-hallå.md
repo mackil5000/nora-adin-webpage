@@ -1,9 +1,7 @@
 ---
 templateKey: blog-post
 title: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet
-image1:
-  alt: hoho
-  image: /img/coffee.png
+image: /img/nora.jpg
 date: 2018-12-22T19:06:03.070Z
 description: >+
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec leo id
