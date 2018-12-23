@@ -104,14 +104,14 @@ export const pageQuery = graphql`
         description
         image1 {
               alt
-               image {
-                 childImageSharp {
-                   fluid(maxWidth: 800, quality:64) {
-                     ...GatsbyImageSharpFluid
-                   }
-                 }
-                 id
-               }
+              #  image {
+              #    childImageSharp {
+              #      fluid(maxWidth: 800, quality:64) {
+              #        ...GatsbyImageSharpFluid
+              #      }
+              #    }
+              #    id
+              #  }
             }
         tags
       }
