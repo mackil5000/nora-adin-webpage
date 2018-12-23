@@ -65,12 +65,11 @@ export default class IndexPage extends React.Component {
                     key={post.id}
                   >
                     <Link to={post.fields.slug}>
-                       <img
+                      <img
                         className="img-fluid"
-                        style={{ borderRadius: '5px' }}
+                        style={{ borderRadius: "5px" }}
                         src={post.frontmatter.image}
-                      /> 
-                      
+                      />
                     </Link>
                     <h4 className="card-heading">
                       <Link className="" to={post.fields.slug}>
@@ -101,10 +100,8 @@ IndexPage.propTypes = {
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array
     })
-  }),
+  })
 };
-
-
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -121,13 +118,14 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            image{
-          childImageSharp {
-            fluid(maxWidth: 730, quality: 64) {
-              ...GatsbyImageSharpFluid
+            image {
+              childImageSharp {
+                fluid(maxWidth: 730, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+              id
             }
-          }
-        }
             templateKey
             date(formatString: "MMMM DD, YYYY")
           }
