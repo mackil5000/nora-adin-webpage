@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
+
 export const BlogPostTemplate = ({
   content,
   contentComponent,
@@ -24,22 +25,24 @@ export const BlogPostTemplate = ({
       {helmet || ""}
       <div className="row">
         <div className="col-md-9 col-lg-8 col-xl-8 mx-auto">
-          <PreviewCompatibleImage imageInfo={image1} />
-          <h1 className="blog-heading">{title}</h1>
-          <p className="intro-text">{description}</p>
-          <PostContent content={content} />
-          {tags && tags.length ? (
-            <div style={{ marginTop: `4rem` }}>
-              <h4>Tags</h4>
-              <ul className="taglist">
-                {tags.map(tag => (
-                  <li key={tag + `tag`}>
-                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
+        <PreviewCompatibleImage imageInfo={image1} />
+            <h1 className="blog-heading">
+              {title}
+            </h1>
+            <p className="intro-text">{description}</p>
+            <PostContent content={content} />
+            {tags && tags.length ? (
+              <div style={{ marginTop: `4rem` }}>
+                <h4>Tags</h4>
+                <ul className="taglist">
+                  {tags.map(tag => (
+                    <li key={tag + `tag`}>
+                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
         </div>
       </div>
     </div>
@@ -59,7 +62,7 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout>
+    <Layout> 
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -100,31 +103,17 @@ export const pageQuery = graphql`
         title
         description
         image1 {
-          alt
-          image {
-            childImageSharp {
-              sizes(
-                maxWidth: 1000
-                quality: 80
-                cropFocus: CENTER
-                toFormat: JPG
-              ) {
-                ...GatsbyImageSharpSizes
-              }
-              responsiveSizes(
-                maxWidth: 800
-                quality: 80
-                cropFocus: CENTER
-                toFormat: JPG
-              ) {
-                src
-                srcSet
-                sizes
-              }
+              alt
+               image {
+                 childImageSharp {
+                   fluid(maxWidth: 800, quality:64) {
+                     ...GatsbyImageSharpFluid
+                   }
+                   
+                 }
+                 id
+               }
             }
-            id
-          }
-        }
         tags
       }
     }
