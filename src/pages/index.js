@@ -27,7 +27,7 @@ export default class IndexPage extends React.Component {
             >
               <div className="row">
                 <div className="col-12">
-                  <h1 className="text-white">Senaste inläggen</h1>
+                  <h1 className="">Senaste inläggen</h1>
                 </div>
                 {posts.map(({ node: post }) => (
                   <div className="col-12 post-list" key={post.id}>
