@@ -27,11 +27,7 @@ export const BlogPostTemplate = ({
         <div className="col-md-9 col-lg-8 col-xl-8 mx-auto">
         
             <h1 style={{
-                  backgroundImage: `url(${
-                    !!image1.childImageSharp
-                      ? image1.childImageSharp.fluid.src
-                      : image
-                  })`,
+                  backgroundImage: `url(${ image })`,
                 }} className="blog-heading">
               {title}
             </h1>
