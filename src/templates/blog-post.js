@@ -30,7 +30,7 @@ export const BlogPostTemplate = ({
                   backgroundImage: `url(${
                     !!image1.childImageSharp
                       ? image1.childImageSharp.fluid.src
-                      : image1
+                      : image
                   })`,
                 }} className="blog-heading">
               {title}
