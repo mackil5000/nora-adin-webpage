@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 export default class IndexPage extends React.Component {
   render() {
@@ -66,13 +65,10 @@ export default class IndexPage extends React.Component {
                     key={post.id}
                   >
                     <Link to={post.fields.slug}>
-                      {/* <img
+                      <img
                         className="img-fluid"
-                        style={{ borderRadius: '5px' }}
+                        style={{ borderRadius: "5px" }}
                         src={post.frontmatter.image}
-                      /> */}
-                      <PreviewCompatibleImage
-                        imageInfo={post.frontmatter.image1}
                       />
                     </Link>
                     <h4 className="card-heading">
@@ -104,11 +100,8 @@ IndexPage.propTypes = {
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array
     })
-  }),
-  image1: PropTypes.object
+  })
 };
-
-
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -125,10 +118,14 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            image1 {
-              alt
-                 image 
-             }
+            image {
+              childImageSharp {
+                fluid(maxWidth: 730, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+              id
+            }
             templateKey
             date(formatString: "MMMM DD, YYYY")
           }
