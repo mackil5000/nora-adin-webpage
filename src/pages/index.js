@@ -4,7 +4,27 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
+const $magganLinks = document.querySelectorAll(`${post.frontmatter.id}`);
+// Check if there are any navbar burgers
+if ($magganLinks.length > 0) {
+  // Add a click event on each of them
+  $magganLinks.forEach(el => {
+    el.addEventListener("mouseover", () => {
+      el.classList.add("is-active");
+    });
+  });
+    $magganLinks.forEach(el => {
+    el.addEventListener("mouseout", () => {
+      el.classList.remove("is-active");
+    });
+  });
+}
+
+
 export default class IndexPage extends React.Component {
+
+
+
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
@@ -31,14 +51,14 @@ export default class IndexPage extends React.Component {
                 {posts.map(({ node: post }) => (
                   <div
                     className="col-12 post-list"
-                    id={post.fields.slug}
+                    
                     key={post.id}
                   >
                     <ul>
                       <li>
                         <Link
                           className="has-text-primary"
-                          id="link"
+                          id={post.fields.slug}
                           to={post.fields.slug}
                         >
                           {post.frontmatter.title}
