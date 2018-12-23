@@ -103,8 +103,13 @@ export const pageQuery = graphql`
           alt
           image {
             childImageSharp {
-              fluid(maxWidth: 800, quality: 64) {
-                ...GatsbyImageSharpFluid
+              sizes(
+                maxWidth: 1000
+                quality: 80
+                cropFocus: CENTER
+                toFormat: JPG
+              ) {
+                ...GatsbyImageSharpSizes
               }
               responsiveSizes(
                 maxWidth: 800
