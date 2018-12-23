@@ -36,9 +36,9 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 mx-auto">
         <h1>Kontakt</h1>
         <form
           name="contact"
@@ -58,30 +58,30 @@ export default class Index extends React.Component {
             </label>
           </div>
           <div className="field">
-            <label className="label" htmlFor={"name"} >Your name</label>
+            <label className="label" placeholder="Ditt namn" htmlFor={"name"} ></label>
             <div className="control">
               <input className="input" type={"text"} name={"name"} onChange={this.handleChange} id={"name"} required={true} />
             </div>
           </div>
           <div className="field">
-            <label className="label" htmlFor={"email"}>Email</label>
+            <label className="label" placeholder="Din mail" htmlFor={"email"}></label>
               <div className="control">
                 <input className="input" type={"email"} name={"email"} onChange={this.handleChange} id={"email"} required={true} />
               </div>
           </div>
           <div className="field">
-            <label className="label" htmlFor={"message"}>Message</label>
+            <label className="label" placeholder="Meddelande" htmlFor={"message"}></label>
             <div className="control">
               <textarea className="textarea" name={"message"} onChange={this.handleChange} id={"message"} required={true} />
             </div>
           </div>
           <div className="field">
-            <button className="button is-link" type="submit">Send</button>
+            <button className="button is-link" type="submit">Skicka</button>
           </div>
         </form>
         </div>
         </div>
-        </section>
+        </div>
       </Layout>
     );
   }
