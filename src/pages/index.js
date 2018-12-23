@@ -4,31 +4,11 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
-
-
-
 export default class IndexPage extends React.Component {
-
-
-
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    const $magganLinks = document.querySelectorAll(`${post.frontmatter.id}`);
-// Check if there are any navbar burgers
-if ($magganLinks.length > 0) {
-  // Add a click event on each of them
-  $magganLinks.forEach(el => {
-    el.addEventListener("mouseover", () => {
-      el.classList.add("is-active");
-    });
-  });
-    $magganLinks.forEach(el => {
-    el.addEventListener("mouseout", () => {
-      el.classList.remove("is-active");
-    });
-  });
-}
+
     return (
       <Layout>
         <div
@@ -50,11 +30,7 @@ if ($magganLinks.length > 0) {
                   <h1 className="text-white">Senaste inläggen</h1>
                 </div>
                 {posts.map(({ node: post }) => (
-                  <div
-                    className="col-12 post-list"
-                    
-                    key={post.id}
-                  >
+                  <div className="col-12 post-list" key={post.id}>
                     <ul>
                       <li>
                         <Link
@@ -78,36 +54,20 @@ if ($magganLinks.length > 0) {
                 right: "0"
               }}
             >
-              <div
-                className="card-columns" // row
-              >
+              <div className="card-columns">
                 {posts.map(({ node: post }) => (
-                  <div
-                    className="card post-tile" //col-x-x
-                    key={post.id}
-                  >
+                  <div className="card post-tile" key={post.id}>
                     <Link to={post.fields.slug}>
-                      {/* <img
-                        className="img-fluid"
-                        style={{ borderRadius: "5px" }}
-                        src={post.frontmatter.image}
-                      /> */}
-<PreviewCompatibleImage imageInfo={post.frontmatter.image} />
-
+                      <PreviewCompatibleImage
+                        imageInfo={post.frontmatter.image}
+                      />
                     </Link>
-                    <h4 className="card-heading">
+                    <p className="card-heading">
                       <Link className="" to={post.fields.slug}>
                         {post.frontmatter.title}
                       </Link>
-                      {/* <small>{post.frontmatter.date}</small> */}
-                    </h4>
-                    <p className="d-none d-md-block">
-                      {/* {post.excerpt} */}
-                      {/* <br />
-                        <br /> */}
-                      {/* <Link className="" to={post.fields.slug}> */}
-                      {/* </Link> */}
                     </p>
+                    <p className="d-none d-md-block" />
                   </div>
                 ))}
               </div>
