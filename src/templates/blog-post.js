@@ -30,15 +30,26 @@ export const BlogPostTemplate = ({
             <p className="intro-text">{description}</p>
           </div>
         </div>
+        
         <div
           style={{
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain"
           }}
           className="col-xl-6"
-        />
+        /> 
+        
+        {/* <div
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain"
+        }}
+        className="col-xl-6"
+      /> */}
         <div
           style={{ marginTop: "100px" }}
           className="col-md-9 col-lg-8 col-xl-5 mx-auto"
