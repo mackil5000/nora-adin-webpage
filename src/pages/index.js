@@ -9,6 +9,16 @@ export default class IndexPage extends React.Component {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
 
+    let listOfSlugs = posts.map(({ node: post }) => {
+      let x = post.fields.slug;
+      return x;
+    });
+
+    for (let i = 0; i < listOfSlugs.length; i++) {
+      console.log(listOfSlugs[i]);
+    }
+
+
     return (
       <Layout>
         <div
@@ -34,8 +44,8 @@ export default class IndexPage extends React.Component {
                     <ul>
                       <li>
                         <Link
-                          className="has-text-primary"
-                          id={post.fields.slug}
+                          className={post.fields.slug}
+                          
                           to={post.fields.slug}
                         >
                           {post.frontmatter.title}
@@ -57,13 +67,20 @@ export default class IndexPage extends React.Component {
               <div className="card-columns">
                 {posts.map(({ node: post }) => (
                   <div className="card post-tile" key={post.id}>
-                    <Link to={post.fields.slug}>
+                    <Link
+                      className={post.fields.slug}
+                      to={post.fields.slug}
+                    >
                       <PreviewCompatibleImage
                         imageInfo={post.frontmatter.image}
                       />
                     </Link>
                     <p className="card-heading">
-                      <Link style={{ fontSize: '16px'}} className="" to={post.fields.slug}>
+                      <Link
+                        style={{ fontSize: "16px" }}
+                        className=""
+                        to={post.fields.slug}
+                      >
                         {post.frontmatter.title}
                       </Link>
                     </p>

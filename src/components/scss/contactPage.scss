@@ -24,8 +24,6 @@
 
     input,
     textarea {
-        background: #fafafa;
-        box-shadow: 0px 3px 9px 0px #0000002e;
 
         min-width: 100%;
         min-height: 66px;
@@ -36,7 +34,7 @@
         outline: 0;
         border: 0;
         border-radius: 2px;
-        transition: ease box-shadow 1s;
+        transition: ease box-shadow 2s;
 
         &:focus {
             background: #fafafa;
@@ -66,7 +64,7 @@
         padding: 8px 16px 8px 16px;
         margin-top: 36px;
         box-shadow: 0px 3px 9px 0px #0000002e;
-        transition: ease all 0.5s;
+        transition: ease background-color 0.5s;
 
         &:hover {
             background-color: darken($color: pink, $amount: 10%);

@@ -13,11 +13,21 @@
 // font-family: 'Noto Serif SC', serif;
 
 $main-font: 'Noto Serif SC', "serif";
-$heading: La Belle Aurore, "cursive";
-$heading1: Oswald, "sans-serif";
+$heading: 'Oswald', "sans-serif";
 
 
 $main-color: #3b3b3b;
+
+.navbar-collapse{
+    display: none;
+    transition: ease-in all 1s;
+}
+
+.class{
+display: block!important;
+transition: ease-in all 1s;
+
+}
 
 body {
     font-family: $main-font;
@@ -47,7 +57,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $heading1;
+    font-family: $heading;
 }
 
 a {
