@@ -31,8 +31,7 @@ export default class IndexPage extends React.Component {
             <div
               className="col-lg-3 d-none d-lg-block"
               style={{
-                position: "fixed",
-                left: "0"
+               
               }}
             >
               <div className="row">
@@ -40,7 +39,7 @@ export default class IndexPage extends React.Component {
                   <h1 className="">Senaste inläggen</h1>
                 </div>
                 {posts.map(({ node: post }) => (
-                  <div className="col-12 post-list" key={post.id}>
+                  <div className="col-10 post-list" key={post.id}>
                     <ul>
                       <li>
                         <Link

@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+// import PreviewCompatibleImage from "../components/PreviewCompatibleImage"
 
 export const BlogPostTemplate = ({
   content,
@@ -22,15 +23,12 @@ export const BlogPostTemplate = ({
       {helmet || ""}
       <div className="row">
         <div className="col-xl-6 order-md-1">
-          <div
-            className="heading-wrapper"
-            style={{ marginLeft: "auto", }}
-          >
+          <div className="heading-wrapper" style={{ marginLeft: "auto" }}>
             <h1 className="blog-heading">{title}</h1>
             <p className="intro-text">{description}</p>
           </div>
         </div>
-        
+
         <div
           style={{
             backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
@@ -39,11 +37,15 @@ export const BlogPostTemplate = ({
             backgroundSize: "contain"
           }}
           className="col-xl-6 header-image order-first order-md-2"
-        /> 
-        
-     
-        <div className="col-md-9 col-lg-8 col-xl-5 order-3 blog-body mx-auto"
-        >
+        />  
+        {/* <div className="col-xl-6 header-image order-first order-md-2"
+        style={{
+          overflow: "hidden"
+        }}
+        > */}
+{/* <PreviewCompatibleImage imageInfo={image}/>      
+</div>*/}
+        <div className="col-md-9 col-lg-8 col-xl-5 order-3 blog-body mx-auto">
           <PostContent content={content} />
           {tags && tags.length ? (
             <div style={{ marginTop: `4rem` }}>

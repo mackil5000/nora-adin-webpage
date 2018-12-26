@@ -3,7 +3,7 @@
     margin-bottom: 32px;
 }
 
-.intro-text{
+.intro-text {
     font-size: 23px;
     margin-bottom: 20px;
 }
@@ -11,9 +11,11 @@
 
 
 @media (max-width: 575px) {
-    .header-image{
+    .header-image {
         width: 100vw;
         height: 100vw;
+        padding-right: 0;
+        padding-left: 0;
     }
 }
 
@@ -23,7 +25,7 @@
 
 @media (min-width: 992px) {
     .heading-wrapper {
-        width: 500px;
+        width: 600px;
         padding-right: 80px;
     }
 

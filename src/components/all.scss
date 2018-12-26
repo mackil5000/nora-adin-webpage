@@ -12,30 +12,34 @@
 // font-family: 'Major Mono Display', monospace;
 // font-family: 'Noto Serif SC', serif;
 
-$main-font: 'Noto Serif SC', "serif";
-$heading: 'Oswald', "sans-serif";
+$main-font: 'Noto Serif SC',
+"serif";
+$heading: 'Oswald',
+"sans-serif";
 
 
 $main-color: #3b3b3b;
 
-.navbar-collapse{
+.navbar-collapse {
     display: none;
     transition: ease-in all 1s;
 }
 
-.class{
-display: block!important;
-transition: ease-in all 1s;
+.class {
+    display: block !important;
+    transition: ease-in all 1s;
 
 }
 
 body {
-    font-family: $main-font;
+    font-family: $heading;
     color: $main-color;
+    background-color: white;
 }
 
+
 nav {
-    background: #fafafa;
+    background: white;
     box-shadow: 0px 0px 40px 0px #0000001c;
 }
 
@@ -43,11 +47,11 @@ nav {
     text-align: center;
 }
 
-.is-active{
+.is-active {
     display: block;
 }
 
-.card{
+.card {
     border: 0;
 }
 
@@ -108,83 +112,6 @@ li {
     }
 }
 
-.contact-form {
-
-    // input:-webkit-autofill {
-    //     -webkit-box-shadow: 0 0 0px 1000px #fafafa inset;
-    //     box-shadow: 0 0 0px 1000px #fafafa inset;
-    // }
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover {
-        border: 0;
-        //   -webkit-text-fill-color: green;
-        -webkit-box-shadow: 0px 0px 9px 1px #0000002e;
-        box-shadow: 0px 3px 9px 0px #0000002e;
-        transition: background-color 5000s ease-in-out 0s;
-    }
-
-    input:-webkit-autofill:focus {
-        box-shadow: 0px 3px 9px 0px #0000002e;
-        border: 0;
-        border-radius: 2px;
-        box-shadow: 0px 3px 3px 0px #0000002e;
-        outline: 0;
-        border-radius: 2px;
-    }
-
-    input,
-    textarea {
-        background: #fafafa;
-        box-shadow: 0px 3px 9px 0px #0000002e;
-
-        min-width: 100%;
-        min-height: 66px;
-
-        padding-left: 20px;
-        margin-top: 8px;
-
-        outline: 0;
-        border: 0;
-        border-radius: 2px;
-        transition: ease box-shadow 1s;
-
-        &:focus {
-            background: #fafafa ;
-            box-shadow: 0px 2px 3px 0px #0000002e;
-            outline: 0;
-            border-radius: 2px;
-        }
-    }
-
-    textarea {
-        min-width: 100%;
-        height: 200px;
-        padding-top: 20px;
-
-
-    }
-
-    button {
-        min-width: 100%;
-        min-height: 60px;
-        background-color: pink;
-        outline: 0;
-        border: 0;
-        color: #3b3b3b;
-        cursor: pointer;
-        border-radius: 2px;
-        padding: 8px 16px 8px 16px;
-        margin-top: 36px;
-        box-shadow: 0px 3px 9px 0px #0000002e;
-        transition: ease all 0.5s;
-
-        &:hover {
-            background-color: darken($color: pink, $amount: 10%);
-            box-shadow: 0px 2px 6px 0px #0000002e;
-        }
-    }
-}
-
 
 
 @media (min-width: 576px) {}
@@ -193,47 +120,16 @@ li {
 
 @media (min-width: 992px) {}
 
-@media (min-width: 1200px) {
-    .contact-form {
+@media (min-width: 1200px) {}
 
-        input,
-        textarea {
-            min-height: 44px;
-            margin-top: 16px;
-            min-width: 50%;
-        }
-        @media(max-width:1599px){
-            input:first-of-type{
-                margin-right:20px;
-                min-width: calc( 50% - 20px);
-            }
-        }
-        textarea {
-            width: 100%;
-            margin-top: 32px;
-            height: 140px;
-        }
-        button{
-            min-width: 100%;
-            width: 100%;
-        }
-    }
-}
+@media (min-width: 1600px) {}
 
-@media (min-width: 1600px) {
-    .contact-form {
 
-        input,
-        textarea {
-            width: 100%;
-            min-height: 66px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 200px;
-            padding-top: 20px;
-            margin-top: 32px;
-        }
-    }
+@mixin div-same-size-as-background-img($url) {
+    background-image: url($url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: percentage(image-height($url) / image-width($url));
 }
