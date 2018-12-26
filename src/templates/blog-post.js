@@ -14,7 +14,8 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-  image
+  image,
+  image2
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -31,7 +32,7 @@ export const BlogPostTemplate = ({
 
          <div
           style={{
-            backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image || image })`,
+            backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image2 || image2 })`,
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain"
@@ -74,6 +75,7 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image2: PropTypes.string,
   helmet: PropTypes.object
 };
 
@@ -87,6 +89,7 @@ const BlogPost = ({ data }) => {
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         image={post.frontmatter.image}
+        image2={post.frontmatter.image}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
