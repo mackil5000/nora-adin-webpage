@@ -38,7 +38,8 @@ export default class Index extends React.Component {
       <Layout>
         <div className="container-fluid"
         style={{
-          marginTop: "80px"
+          marginTop: "80px",
+          marginBottom: "100px"
         }}
         >
           <div className="row">
