@@ -9,14 +9,14 @@ export default class IndexPage extends React.Component {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
 
-    let listOfSlugs = posts.map(({ node: post }) => {
-      let x = post.fields.slug;
-      return x;
-    });
+    // let listOfSlugs = posts.map(({ node: post }) => {
+    //   let x = post.fields.slug;
+    //   return x;
+    // });
 
-    for (let i = 0; i < listOfSlugs.length; i++) {
-      console.log(listOfSlugs[i]);
-    }
+    // for (let i = 0; i < listOfSlugs.length; i++) {
+    //   console.log(listOfSlugs[i]);
+    // }
 
 
     return (
