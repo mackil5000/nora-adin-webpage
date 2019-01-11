@@ -2,7 +2,7 @@
 @import "./scss/contactPage.scss";
 @import "./scss/blogPost.scss";
 @import "./scss/font.scss";
-@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Noto+Serif+SC|Oswald|Staatliches');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC|Oswald');
 
 
 
@@ -20,16 +20,20 @@ $heading: 'Oswald',
 
 $main-color: #3b3b3b;
 
-.navbar-collapse {
-    display: none;
-    transition: ease-in all 1s;
+@media (max-width: 991px){
+    .navbar-collapse {
+        display: none;
+        transition: ease-in all 1s;
+    }
+    
+    #maggan {
+        transition: ease-in all 1s;
+    }
+    .class {
+        display: block !important;
+    }
 }
 
-.class {
-    display: block !important;
-    transition: ease-in all 1s;
-
-}
 
 body {
     font-family: $heading;

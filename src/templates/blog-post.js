@@ -20,7 +20,9 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid"
+    style={{ marginBottom: "100px" }}
+    >
       {helmet || ""}
       <div className="row">
         <div className="col-xl-6 order-md-1">
@@ -37,17 +39,17 @@ export const BlogPostTemplate = ({
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain"
           }}
-          className="col-xl-6 header-image order-first order-md-2"
+          className="col-xl-6 d-none d-sm-block header-image order-first order-md-2"
         />   
 
-        {/* <div
-          className="col-xl-6 header-image order-first order-md-2"
+         <div
+          className="d-block d-sm-none header-image order-first order-md-2"
           style={{
             overflow: "hidden"
           }}
         >
           <PreviewCompatibleImage imageInfo={image} />
-        </div> */}
+        </div> 
 
         <div className="col-md-9 col-lg-8 col-xl-5 order-3 blog-body mx-auto">
           <PostContent content={content} />
