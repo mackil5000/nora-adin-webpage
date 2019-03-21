@@ -2,10 +2,12 @@ module.exports = {
   siteMetadata: {
     title: 'Nora Adin',
     description: 'Nora Adins blogg',
+    siteUrl: 'https://www.noraadin.se'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
